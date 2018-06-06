@@ -17,7 +17,6 @@ sudo yum install httpd mod_fcgid
 export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
 npm -g install puppeteer
 npm -g install node-fastcgi
-npm -g install website-scraper
 ```
 - Setup Apache
 
