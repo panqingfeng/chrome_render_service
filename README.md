@@ -3,6 +3,8 @@ Just install Apache with mod_fcgid and mod_proxy, put two files to cgi-bin,  now
 # Why?
 [Splash](https://github.com/scrapinghub/splash) has done a great job on providing rendering service. But Splash use Python and QtWebkit as kernel, memory usage easily out of control, In some worse cases, the service hanged. That't why I setup my own render service base on Chrome myself.
 
+mod_fcgid has a well designed process management stratgy, it will kick off any process(a Node.js process running [puppeteer](https://github.com/GoogleChrome/puppeteer) in this case) which has communication problem, that's why this render survive in a heavy stress test.
+
 # How?
 - [Install Chrome](https://www.google.com/chrome/)
 - [Install Node.js version >= 8](https://nodejs.org/en/download/)
@@ -57,8 +59,8 @@ MaxRequestWorkers 2040
 ```
 - Put render.js and render.fcgi to /var/www/cgi-bin/, and restart httpd
 ```sh
-copy /path/to/render.js /var/www/cgi-bin/
-copy /path/to/render.fcgi /var/www/cgi-bin/
+cp /path/to/render.js /var/www/cgi-bin/
+cp /path/to/render.fcgi /var/www/cgi-bin/
 sudo systemctl restart httpd
 ```
 - Now visit http://YOUR_IP:9090/cgi-bin/render.fcgi?url=www.google.com and enjoy it
