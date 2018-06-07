@@ -61,11 +61,11 @@ copy /path/to/render.js /var/www/cgi-bin/
 copy /path/to/render.fcgi /var/www/cgi-bin/
 sudo systemctl restart httpd
 ```
-- Now visit http://YOUR_IP/cgi-bin/render.fcgi?url=www.example.com and enjoy it
+- Now visit http://YOUR_IP:9090/cgi-bin/render.fcgi?url=www.google.com and enjoy it
 
 # More?
 - [This blog show how to get a HAR with chrome](https://michaljanaszek.com/blog/generate-har-with-puppeteer)
-- You can setup a checker in front of render.fcgi, this script verify the URL is accessable and a text/html respond body before redirect to the real render. Both scripts share the same http proxy, so render.fcgid may do the job a little bit faster:
+- You can setup a checker in front of render.fcgi, this script verify the URL is accessable and has a text/html respond body before redirect to real render. Both scripts share the same http proxy, so render.fcgid may do the job a little bit faster:
 
 fastrender.js
 ```sh
