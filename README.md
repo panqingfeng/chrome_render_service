@@ -48,7 +48,6 @@ LoadModule mpm_event_module modules/mod_mpm_event.so
 
 # mod_fcgid
 FcgidCmdOptions /var/www/cgi-bin/render.fcgi IOTimeout 120 MaxProcesses 10  
-FcgidCmdOptions /var/www/cgi-bin/fastrender.fcgi IOTimeout 240 MaxProcesses 50
 
 # mpm_event
 ThreadsPerChild 20
